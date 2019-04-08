@@ -20,4 +20,13 @@ class Item < ApplicationRecord
       original_price
     end
   end
+
+  def self.average_price
+    prices_list = []
+    find_each do |item|
+      prices_list << item.price
+    end
+    prices_list_sum = prices_list.inject(:+)
+    prices_list_sum / prices_list.length
+  end
 end
