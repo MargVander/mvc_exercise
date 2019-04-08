@@ -8,12 +8,9 @@ module Administration
     end
 
     def update
-      puts "%%%%%%%%%%%%%%%%%%%%%%%%%"
-      puts params
-      puts "%%%%%%%%%%%%%%%%%%%%%%%%%"
       @item = Item.find(params["id"])
       @item.update(discount_percentage: params["item"]["discount_percentage"], has_discount: true)
-      puts @item.original_price
+      puts Item.average_price.round(2)
 
       redirect_to administration_items_path
     end
