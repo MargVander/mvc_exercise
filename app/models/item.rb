@@ -13,6 +13,9 @@
 #
 
 class Item < ApplicationRecord
+  validates :discount_percentage, inclusion: 0..100
+  validates :original_price, presence: true
+
   def price
     if has_discount == true
       original_price - (original_price * (discount_percentage.to_f / 100)).round(2)

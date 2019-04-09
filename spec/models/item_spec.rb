@@ -20,8 +20,10 @@ RSpec.describe Item, type: :model do
 
     describe 'Database' do
       it { is_expected.to have_db_column(:id).of_type(:integer) }
-      it { is_expected.to have_db_column(:original_price).of_type(:float).with_options(null: false) }
+      it { is_expected.to have_db_column(:original_price).of_type(:float).with_options(presence: true) }
       it { is_expected.to have_db_column(:created_at).of_type(:datetime).with_options(null: false) }
+      it { is_expected.to have_db_column(:discount_percentage).of_type(:integer) }
+      it { is_expected.to validate_inclusion_of(:discount_percentage).in_range(0..100) }
     end
   end
 
