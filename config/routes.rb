@@ -3,9 +3,10 @@
 Rails.application.routes.draw do
   devise_for :admins
   devise_for :users
-  root 'administration/items#index'
+  root 'items#index'
 
   get '/home', to: 'home#landing_page'
+  resources :items, only: [:index]
 
   namespace 'administration' do
     get '/', to: 'items#index'
