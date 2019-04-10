@@ -16,6 +16,13 @@
           </span>
         <% end %>
 			</li>
+			<li class="sidebar-item">
+				<%= link_to destroy_user_session_path, class: "sidebar-link", method: "delete" do %>
+					<span class="align-middle">
+						Se déconnecter (<%= current_user.email %>)
+					</span>
+				<% end %>
+			</li>
 
 		</ul>
 
