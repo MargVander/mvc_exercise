@@ -18,6 +18,13 @@
       </li>
       <% if current_admin %>
         <li class="sidebar-item">
+          <%= link_to administration_items_path, class: "sidebar-link" do %>
+            <span class="align-middle">
+              Gérer les prix
+            </span>
+          <% end %>
+        </li>
+        <li class="sidebar-item">
           <%= link_to destroy_admin_session_path, class: "sidebar-link", method: "delete" do %>
             <span class="align-middle">
               Se déconnecter (<%= current_admin.email %>)
@@ -43,7 +50,7 @@
         <li class="sidebar-item">
           <%= link_to new_user_session_path, class: "sidebar-link" do %>
             <span class="align-middle">
-              Se connecter (admin)
+              Se connecter (user)
             </span>
           <% end %>
         </li>
