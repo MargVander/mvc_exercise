@@ -4,8 +4,10 @@
 		<h1 class="h3 mb-3">Items</h1>
 
 		<h3>Emails</h3>
-		<% @emails.each do |email| %>
-			<p><%= email %></p>
+		<% @users.each do |user| %>
+		  <%= link_to administration_profile_path(user.profile.id) do %>
+			  <p><%= user.email %></p>
+		  <% end %>
 		<% end %>
 
 		<div class="row">
