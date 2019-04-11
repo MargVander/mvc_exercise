@@ -32,6 +32,7 @@ class User < ApplicationRecord
          :confirmable
 
   has_one :profile, dependent: :destroy
+  after_create :create_profile
 
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, self, *args).deliver_later
@@ -39,5 +40,9 @@ class User < ApplicationRecord
 
   def self.emails_of_all_users
     User.pluck(:email)
+  end
+
+  def create_profile
+    Profile.create(user_id: id)
   end
 end
