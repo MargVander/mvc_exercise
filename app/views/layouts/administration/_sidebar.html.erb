@@ -17,9 +17,9 @@
         <% end %>
 			</li>
 			<li class="sidebar-item">
-				<%= link_to destroy_user_session_path, class: "sidebar-link", method: "delete" do %>
+				<%= link_to destroy_admin_session_path, class: "sidebar-link", method: "delete" do %>
 					<span class="align-middle">
-						Se déconnecter (<%= current_user.email %>)
+						Se déconnecter (<%= current_admin.email %>)
 					</span>
 				<% end %>
 			</li>
