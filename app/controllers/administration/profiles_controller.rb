@@ -4,7 +4,9 @@ module Administration
   class ProfilesController < ApplicationController
     before_action :set_profile
 
-    def show; end
+    def show
+      @user = @profile.user
+    end
 
     def send_email
       @profile.send_email
