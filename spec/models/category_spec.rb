@@ -14,5 +14,20 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'Model instantiation' do
+    subject(:new_category) { described_class.new }
+
+    describe 'Database' do
+      it { is_expected.to have_db_column(:id).of_type(:integer) }
+      it { is_expected.to have_db_column(:name).of_type(:string).with_options(presence: true) }
+      it { is_expected.to have_db_column(:description).of_type(:string).with_options(presence: true) }
+      it { is_expected.to have_many :items }
+    end
+  end
+
+  describe 'Valid with valid attributes' do
+    context 'when the category has valid attribute' do
+      it { expect(build(:category)).to be_valid }
+    end
+  end
 end

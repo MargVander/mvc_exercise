@@ -20,8 +20,10 @@
 
 FactoryBot.define do
   factory :item do
+    name                { Faker::Food.dish }
     original_price      { Faker::Number.decimal(2) }
     has_discount        { Faker::Boolean.boolean }
+    category            { FactoryBot.create(:category) }
 
     trait :with_discount do
       has_discount { true }

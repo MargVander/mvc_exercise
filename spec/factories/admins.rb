@@ -42,5 +42,9 @@
 
 FactoryBot.define do
   factory :admin do
+    email { Faker::Internet.email }
+    password { "azerty" }
+    password_confirmation { "azerty" }
+    confirmed_at { Time.now.getlocal }
   end
 end
