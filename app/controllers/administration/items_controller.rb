@@ -3,6 +3,7 @@
 module Administration
   class ItemsController < AdministrationController
     def index
+      @categories = Category.all
       @users = User.all
       @emails = User.emails_of_all_users
       @items = Item.all
